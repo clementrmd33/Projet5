@@ -1,0 +1,208 @@
+/*******************************************TEMPLATE*****************************************/
+header .navbar {
+    background-color: goldenrod;
+}
+header .navbar img{
+    width: 100%;
+}
+footer .nav{
+    display: flex;
+    justify-content: center;
+    background-color: goldenrod;
+}
+footer .nav a{
+    text-decoration: none;
+    color: #777;
+}
+.jumbotron{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.jumbotron .container{
+    height: auto;
+}
+.jumbotron .container h1{
+    margin-bottom: 30px;
+}
+body{
+    background-color: #eee;
+}
+#bloc_pageAccueil{
+    padding-top: 0;
+}
+/*******************************************HOME PAGE*****************************************/
+#container_actualite{
+    width: 50%;
+    margin: auto;
+}
+#container_actualite .card-header{
+    background-color: goldenrod;
+}
+#container_actualite .card-header h2{
+    margin-bottom: 0;
+}
+#container_actualite .card-body{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border: goldenrod 1px solid;
+}
+/**********************************     COCKTAILS       ***************************************/
+.list_cocktail{
+    width: 50%;
+    display:none;
+    margin: auto;
+}
+.list_cocktail ul{
+    text-align: center;
+    list-style: none;
+    padding:0;
+    margin: 10px 0 10px 0;
+}
+.titre_cocktails_sans_alcool{
+    text-decoration: underline;
+}
+/*************************************      AFFICHAGE COCKTAILS      ********************************/
+.reglage ul{
+    list-style-type: none;
+    padding: 0;
+}
+#titre_cocktail{
+    background-color: goldenrod;
+    margin-top: 50px;
+    color: white;
+    -webkit-border-radius:25px;
+}
+#titre_cocktail h2{
+    color: black;
+    text-decoration: underline;
+}
+#titre_cocktail h1{
+    color: black;
+}
+#com_h2{
+   text-decoration: underline;
+}
+#form_com{
+    padding-top: 20px;
+    width: 80% ;
+    margin: auto;
+}
+#container_commentaire{
+    background-color: #D6D6D2;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+}
+
+/*********************************      SPIRITUEUX    ********************************/
+
+.container_spiritueux h1{
+    text-decoration: underline;
+}
+.liste_spiritueux{
+   height: auto;
+}
+
+/***********************************     CARTE       ****************************************/
+
+#container-carte{
+    width: 90%;
+    margin: 0 5% 0 5%;
+    height: 700px;
+}
+#map{
+    height: 500px;
+}
+#container-info-bar{
+    width: 50%;
+    margin: auto;
+}
+#container-info-bar h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+/************************************      EVENEMENT     ************************************/
+
+#tableau_evenement{
+    width: 80%;
+    margin: auto;
+
+}
+/**********************************          CONTACT       ************************************/
+
+#container_contact{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/**********************************          CONNEXION      *************************************/
+
+#container_connection, #container_connection_admin{
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 70px;
+}
+.form-group h1{
+    text-decoration: underline;
+}
+.form-control{
+    border: 1px goldenrod solid;
+}
+.container_inscription{
+    width: 90%;
+    margin: auto;
+}
+/**************************************   ADMINISTRATION      ********************************/
+
+
+#container-admin .jumbotron h1{
+    text-align: center;
+    text-decoration: underline;
+}
+#container-admin .jumbotron h2{
+    text-align: center;
+}
+#container-admin .jumbotron table{
+    width: 90%;
+    margin: auto;
+}
+#container-admin .jumbotron td{
+    width: 25%;
+}
+#container-admin .jumbotron .thead-dark{
+    background-color: goldenrod;
+}
+#container-admin .jumbotron .thead-light{
+    background-color: goldenrod;
+}
+#tableau1, #tableau2, #tableau3, #tableau4 {
+    display: none;
+}
+#titre_tableau1:hover,#titre_tableau2:hover,#titre_tableau3:hover, #titre_tableau4:hover {
+    color: red;
+    width: 90%;
+    margin: auto;
+    background-color: goldenrod;
+}
+.tableau{
+    border-right: goldenrod 2px solid;
+    border-left: goldenrod 2px solid;
+}
+th{
+    text-align: center;
+}
+#button_ajout_cocktail{
+    margin: auto;
+}
+#button_ajout_cocktail a{
+    color: white;
+}
+/******************************************************************************************
+**********************************      AJOUT COCKTAIL      ********************************
+********************************************************************************************/
+.container_ajout{
+    width: 90%;
+    margin: auto;
+}
