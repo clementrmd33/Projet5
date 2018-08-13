@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Cocktail avec alcool</h1>
+            <p class="lead">Vous cherchez une idée de cocktail avec de l'alcool?</p>
+            <p class="lead">Vous pourrez surement trouver votre bonheur dans cette liste mise à jour régulierement !</p>
+            <p class="lead">si vous souhaitez voir vos cocktails dans cette liste, vous pouvez me les envoyer accompagner
+                d'une description, recette , décoration ...</p>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_vodka">Vodka <span class="badge">{{ cocktailsVodka|length }}</span></button>
+        <div id="Listes_vodka" class="list_cocktail">
+            <ul>
+                {% for listesVodka in cocktailsVodka %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesVodka.id}) }}">{{ listesVodka.nom|raw }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_gin">Gin <span class="badge">{{ cocktailsGin|length }}</span></button>
+        <div id="Listes_gin" class="list_cocktail">
+            <ul>
+                {% for listesGin in cocktailsGin %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesGin.id}) }}">{{ listesGin.nom|raw  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_rhum">Rhum <span class="badge">{{ cocktailsRhum|length }}</span></button>
+        <div id="Listes_rhum" class="list_cocktail">
+            <ul>
+                {% for listesRhum in cocktailsRhum %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesRhum.id}) }}">{{ listesRhum.nom|raw  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_tequila">Tequila <span class="badge">{{ cocktailsTequila|length }}</span></button>
+        <div id="Listes_tequila" class="list_cocktail">
+            <ul>
+                {% for listesTequila in cocktailsTequila %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesTequila.id}) }}">{{ listesTequila.nom|raw  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_whiskies">Whiskies <span class="badge">{{ cocktailsWhiskies|length }}</span></button>
+        <div id="Listes_whiskies" class="list_cocktail">
+            <ul>
+                {% for listesWhiskies in cocktailsWhiskies %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesWhiskies.id}) }}">{{ listesWhiskies.nom|raw  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="button_autresspiritueux">Autres spiritueux <span class="badge">{{ cocktailsAutresSpiritueux|length }}</span></button>
+        <div id="Listes_autresspiritueux" class="list_cocktail">
+            <ul>
+                {% for listesAutresSpiritueux in cocktailsAutresSpiritueux %}
+                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesAutresSpiritueux.id}) }}">{{ listesAutresSpiritueux.nom|raw  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/PageCocktailsAvecAlcool.js') }}"></script>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="container_spiritueux">
+                <h1 class="display-4">Le Gin</h1>
+                {% for AffichageGin in AffichageGin %}
+                    <h2>Histoire</h2>
+                    <p>{{ AffichageGin.histoire }}</p>
+                    <h2>Son elaboration</h2>
+                    <p>{{ AffichageGin.elaboration|raw }}</p>
+                    <h2>Les lieux de production</h2>
+                    <p>{{ AffichageGin.lieuproduction }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
