@@ -35,7 +35,7 @@ class Cocktails extends AbstractController
             $manager->flush();
         }
 
-        return $this->render('Cocktails/AffichageCocktail.html.twig',array(
+        return $this->render('Cocktails/Cocktail.html.twig',array(
             'cocktail'=> $cocktail,
             'form' => $formcom->createView(),
             'comment' => $newCom

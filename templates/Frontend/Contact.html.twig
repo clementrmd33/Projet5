@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formcontact 'bootstrap_4_layout.html.twig' %}
+{% block main %}
+    <div class="container" id="container_contact">
+        {{ form_start(formcontact) }}
+            {{ form_row(formcontact.email, {'label':'Email','attr': {'placeholder': 'Votre email ...'}}) }}
+            {{ form_row(formcontact.objet, {'label':'Objet','attr': {'placeholder' : 'Objet'}})}}
+            {{ form_row(formcontact.contenu, {'label':'Message','attr': {'placeholder': 'Votre message...'}})}}
+            <input type="submit" class="btn btn-primary"/>
+        {{ form_end(formcontact) }}
+    </div>
+    {% for message in app.flashes('Informations') %}
+        <div class="container alert alert-success flash-informations">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
