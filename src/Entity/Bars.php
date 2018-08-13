@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,17 +21,17 @@ class Bars
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $Description;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adresse;
+    private $Adresse;
 
     /**
      * @ORM\Column(type="float")
@@ -41,43 +43,44 @@ class Bars
      */
     private $lng;
 
-    public function getId(): ?int
+
+    public function getId()
     {
         return $this->id;
     }
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $Nom): self
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->description;
+        return $this->Description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $Description): self
     {
-        $this->description = $description;
+        $this->Description = $Description;
 
         return $this;
     }
 
     public function getAdresse(): ?string
     {
-        return $this->adresse;
+        return $this->Adresse;
     }
 
-    public function setAdresse(string $adresse): self
+    public function setAdresse(string $Adresse): self
     {
-        $this->adresse = $adresse;
+        $this->Adresse = $Adresse;
 
         return $this;
     }
