@@ -42,7 +42,7 @@ class Profil extends AbstractController
 
             $mailer->send($message);
 
-            return $this->redirectToRoute('connect');
+            return $this->redirectToRoute('accueil');
         }
         return $this->render('Frontend/ProfilClient.html.twig', [
             'form' => $formprofil->createView()

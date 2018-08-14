@@ -9,10 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateursRepository")
- * @UniqueEntity(
- *     fields={"email"},
- *     message="l'email que vous avez indiqué et déja utilisé !"
- * )
  */
 class Utilisateurs implements UserInterface, \Serializable
 {
@@ -25,6 +21,7 @@ class Utilisateurs implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
      */
     private $email;
 
