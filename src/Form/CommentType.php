@@ -14,8 +14,6 @@ class CommentType extends AbstractType
         $builder
             ->add('nom')
             ->add('message')
-            ->add('createAt')
-            ->add('cocktails')
         ;
     }
 

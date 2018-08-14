@@ -2,8 +2,9 @@
 
 namespace App\Form;
 
-use App\Entity\Users;
+use App\Entity\Utilisateurs;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,17 +14,15 @@ class ProfilType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('username')
-            ->add('password')
-            ->add('confirmpassword')
-            ->add('roles')
+            ->add('password', PasswordType::class)
+            ->add('confirmpassword', PasswordType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Users::class,
+            'data_class' => Utilisateurs::class,
         ]);
     }
 }

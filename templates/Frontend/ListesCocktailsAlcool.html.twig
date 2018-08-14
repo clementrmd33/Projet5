@@ -12,7 +12,7 @@
         <div id="Listes_vodka" class="list_cocktail">
             <ul>
                 {% for listesVodka in cocktailsVodka %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesVodka.id}) }}">{{ listesVodka.nom|raw }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesVodka.id}) }}">{{ listesVodka.nom|raw }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -20,7 +20,7 @@
         <div id="Listes_gin" class="list_cocktail">
             <ul>
                 {% for listesGin in cocktailsGin %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesGin.id}) }}">{{ listesGin.nom|raw  }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesGin.id}) }}">{{ listesGin.nom|raw  }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -28,7 +28,7 @@
         <div id="Listes_rhum" class="list_cocktail">
             <ul>
                 {% for listesRhum in cocktailsRhum %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesRhum.id}) }}">{{ listesRhum.nom|raw  }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesRhum.id}) }}">{{ listesRhum.nom|raw  }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -36,7 +36,7 @@
         <div id="Listes_tequila" class="list_cocktail">
             <ul>
                 {% for listesTequila in cocktailsTequila %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesTequila.id}) }}">{{ listesTequila.nom|raw  }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesTequila.id}) }}">{{ listesTequila.nom|raw  }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -44,7 +44,7 @@
         <div id="Listes_whiskies" class="list_cocktail">
             <ul>
                 {% for listesWhiskies in cocktailsWhiskies %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesWhiskies.id}) }}">{{ listesWhiskies.nom|raw  }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesWhiskies.id}) }}">{{ listesWhiskies.nom|raw  }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -52,7 +52,7 @@
         <div id="Listes_autresspiritueux" class="list_cocktail">
             <ul>
                 {% for listesAutresSpiritueux in cocktailsAutresSpiritueux %}
-                    <li><a href="{{ path('app_frontend_pageaffichagecontrol_pageaffichagecocktail', {'id':listesAutresSpiritueux.id}) }}">{{ listesAutresSpiritueux.nom|raw  }}</a></li>
+                    <li><a href="{{ path('app_frontend_cocktail_cocktail', {'id':listesAutresSpiritueux.id}) }}">{{ listesAutresSpiritueux.nom|raw  }}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -20,7 +20,7 @@ class SpiritueuxRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Spiritueux[] Returns an array of Spiritueux objects
+//     * @return ListesSpiritueux[] Returns an array of ListesSpiritueux objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class SpiritueuxRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Spiritueux
+    public function findOneBySomeField($value): ?ListesSpiritueux
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

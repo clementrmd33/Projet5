@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <form id="container_connection" action="{{ path('connect') }}" method="POST">
+        <div id="container_formulaire">
+            <div class="form-group">
+                <h1>Connexion</h1>
+            </div>
+            <div class="form-group">
+                <label for="email">Votre email</label>
+                <input type="text" class="form-control" id="email" name="_username"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Votre mot de passe <a href="{{ path('reset_password') }}">(Mot de passe oublié ?)</a></label>
+                <input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe">
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyez</button>
+        </div>
+        <div id="inscription">
+            <a href="{{ path('inscription') }}">Nouveau membre ?</a>
+        </div>
+    </form>
+{% endblock %}

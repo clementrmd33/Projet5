@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,106 +21,152 @@ class CocktailsAlcool
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $Nom;
+
+    /**
+     * @ORM\Column(type="text", length=255)
+     */
+    private $Recette;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $Decoration;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $Histoire;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $recette;
+    private $Alcool;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
-    private $decoration;
+    private $Elaboration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="cocktails", orphanRemoval=true)
      */
-    private $histoire;
+    private $comments;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $elaboration;
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $alcool;
-
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $Nom): self
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
 
         return $this;
     }
-
     public function getRecette(): ?string
     {
-        return $this->recette;
+        return $this->Recette;
     }
 
-    public function setRecette(string $recette): self
+    public function setRecette(string $Recette): self
     {
-        $this->recette = $recette;
+        $this->Recette = $Recette;
 
         return $this;
     }
 
     public function getDecoration(): ?string
     {
-        return $this->decoration;
+        return $this->Decoration;
     }
 
-    public function setDecoration(string $decoration): self
+    public function setDecoration(string $Decoration): self
     {
-        $this->decoration = $decoration;
+        $this->Decoration = $Decoration;
 
         return $this;
     }
 
     public function getHistoire(): ?string
     {
-        return $this->histoire;
+        return $this->Histoire;
     }
 
-    public function setHistoire(string $histoire): self
+    public function setHistoire(string $Histoire): self
     {
-        $this->histoire = $histoire;
-
-        return $this;
-    }
-
-    public function getElaboration(): ?string
-    {
-        return $this->elaboration;
-    }
-
-    public function setElaboration(string $elaboration): self
-    {
-        $this->elaboration = $elaboration;
+        $this->Histoire = $Histoire;
 
         return $this;
     }
 
     public function getAlcool(): ?string
     {
-        return $this->alcool;
+        return $this->Alcool;
     }
 
-    public function setAlcool(string $alcool): self
+    public function setAlcool(string $Alcool): self
     {
-        $this->alcool = $alcool;
+        $this->Alcool = $Alcool;
+
+        return $this;
+    }
+    public function getElaboration(): ?string
+    {
+        return $this->Elaboration;
+    }
+
+    public function setElaboration(string $Elaboration): self
+    {
+        $this->Elaboration = $Elaboration;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        // to show the name of the Category in the select
+        return $this->Alcool;
+        // to show the id of the Category in the select
+        // return $this->id;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setCocktails($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getCocktails() === $this) {
+                $comment->setCocktails(null);
+            }
+        }
 
         return $this;
     }

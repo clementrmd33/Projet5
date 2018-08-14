@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+
+    <div id="container-admin">
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">Administration</h1>
+            <div id="titre_tableau1">
+                <h2>Liste des cocktails</h2>
+            </div>
+            <div id="tableau1">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="col-sm-1 col-xs-1">id</th>
+                            <th scope="col" class="col-sm-1 col-xs-1">Nom</th>
+                            <th scope="col" class="col-sm-1 hidden-xs">Recette</th>
+                            <th scope="col" class="col-sm-1 hidden-xs">Decoration</th>
+                            <th scope="col" class="col-sm-1 col-xs-1"></th>
+                        </tr>
+                        </thead>
+                        <tbody class="tableau">
+                        {% for listeCocktailsAdministration in listeCocktailsAdministration %}
+                            <tr>
+                                <th class="col-sm-1 col-xs-1"> {{ listeCocktailsAdministration.id }} </th>
+                                <th class="col-sm-1 col-xs-1"> {{ listeCocktailsAdministration.nom|raw }} </th>
+                                <th class="col-sm-1 hidden-xs"> {{ listeCocktailsAdministration.recette|raw  }} </th>
+                                <th class="col-sm-1 hidden-xs"> {{ listeCocktailsAdministration.decoration|raw }} </th>
+                                <th class="col-sm-1 col-xs-1"><a href="{{ path('app_backend_deletecrud_deletecocktails',{'id':listeCocktailsAdministration.id}) }}"><i class="fas fa-trash-alt"></i></a><a href="{{ path('app_backend_updatecrud_updatecocktails',{'id':listeCocktailsAdministration.id}) }}"><i class="fas fa-edit"></i></a></th>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="text-center">{{ knp_pagination_render(listeCocktailsAdministration) }}</div>
+                    <div class="text-center">
+                        <div class="container">
+                            <div class="btn btn-primary text-center" id="button_ajout_cocktail">
+                                <a href="{{ path('Add_cocktail')}}" role="button">Ajouter un nouveau cocktail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="titre_tableau2">
+                <h2>Liste des spiritueux</h2>
+            </div>
+            <div id="tableau2">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="col-sm-1 col-xs-1">id</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Nom</th>
+                        <th scope="col" class="hidden-sm hidden-xs">Histoire</th>
+                        <th scope="col" class="col-sm-1 hidden-xs">Elaboration</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Zone</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Marques</th>
+                        <th scope="col" class="col-sm-1 col-xs-1"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="tableau">
+                    {% for listesSpiritueux in listeSpiritueux %}
+                        <tr>
+                            <th class="col-sm-1 col-xs-1"> {{ listesSpiritueux.id }} </th>
+                            <th class="col-sm-1 col-xs-1"> {{ listesSpiritueux.nom }} </th>
+                            <th class="hidden-sm hidden-xs"> {{ listesSpiritueux.histoire }} </th>
+                            <th class="col-sm-1 hidden-xs"> {{ listesSpiritueux.elaboration|raw }} </th>
+                            <th class="col-sm-1 hidden-xs"> {{ listesSpiritueux.LieuProduction}} </th>
+                            <th class="col-sm-1 col-xs-1"> {{ listesSpiritueux.marques }} </th>
+                            <th class="col-sm-1 col-xs-1"><a href="{{ path('app_backend_deletecrud_deletespiritueux', {'id': listesSpiritueux.id }) }}"><i class="fas fa-trash-alt"></i></a><a href="{{ path('app_backend_updatecrud_updatespiritueux', { 'id' : listesSpiritueux.id}) }}"><i class="fas fa-edit"></i></a></th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">{{ knp_pagination_render(listeSpiritueux) }}</div>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="btn btn-primary text-center" id="button_ajout_cocktail">
+                            <a href="{{ path('Add_spirit')}}" role="button">Ajouter un nouveau spiritueux</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="titre_tableau3">
+                <h2>Liste des bars</h2>
+            </div>
+            <div id="tableau3">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="col-sm-1 col-xs-1">id</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Nom</th>
+                        <th scope="col" class="col-sm-1 hidden-xs">Description</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Adresse</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="tableau">
+                    {% for listeBars in listeBars %}
+                        <tr>
+                            <th class="col-sm-1 col-xs-1">{{ listeBars.id }}</th>
+                            <th class="col-sm-1 col-xs-1">{{ listeBars.nom }}</th>
+                            <th class="col-sm-1 hidden-xs">{{ listeBars.description|raw }}</th>
+                            <th class="col-sm-1 col-xs-1">{{ listeBars.adresse }}</th>
+                            <th class="col-sm-1 col-xs-1"><a href="{{ path('app_backend_deletecrud_deletebars',{'id':listeBars.id}) }}"><i class="fas fa-trash-alt"></i></a><a href="{{ path('app_backend_updatecrud_updatebars',{'id':listeBars.id}) }}"><i class="fas fa-edit"></i></a></th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">{{ knp_pagination_render(listeBars) }}</div>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="btn btn-primary text-center" id="button_ajout_cocktail">
+                            <a href="{{ path('Add_bar')}}" role="button">Ajouter un nouveau bar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="titre_tableau4">
+                <h2>Liste des Membres</h2>
+            </div>
+            <div id="tableau4">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="col-sm-1 col-xs-1">id</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Pseudo</th>
+                        <th scope="col" class="col-sm-1 hidden-xs">Mot de passe</th>
+                        <th scope="col" class="col-sm-1 col-xs-1">Email</th>
+                        <th scope="col" class="col-sm-1 col-xs-1"></th>
+                        <th scope="col" class="col-sm-1 col-xs-1"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="tableau">
+                    {% for listesMembres in listeMembres %}
+                        <tr>
+                            <th class="col-sm-1 col-xs-1"> {{ listesMembres.id }} </th>
+                            <th class="col-sm-1 col-xs-1"> {{ listesMembres.username }} </th>
+                            <th class="col-sm-1 col-xs-1"> {{ listesMembres.email }} </th>
+                            <th class="col-sm-1 hidden-xs"> {{ listesMembres.password }} </th>
+                            <th class="col-sm-1 hidden-xs"></th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">{{ knp_pagination_render(listeMembres) }}</div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/PageAdministration.js') }}"></script>
+{% endblock %}

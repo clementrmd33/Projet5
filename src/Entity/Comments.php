@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentsRepository")
@@ -17,12 +18,24 @@ class Comments
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "Ton message doit comporter minimum {{ limit }} caracteres",
+     *      maxMessage = "Ton message doit comporter maximum {{ limit }} caracteres"
+     * )
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     min = 10,
+     *     max = 200,
+     *     minMessage = "Ton message doit comporter minimum {{ limit }} caracteres",
+     *     maxMessage = "Ton message doit comporter maximum {{ limit }} caracteres"
+     * )
      */
     private $message;
 
@@ -32,11 +45,12 @@ class Comments
     private $createAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\CocktailsAlcool", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cocktails;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -77,12 +91,12 @@ class Comments
         return $this;
     }
 
-    public function getCocktails(): ?string
+    public function getCocktails(): ?CocktailsAlcool
     {
         return $this->cocktails;
     }
 
-    public function setCocktails(string $cocktails): self
+    public function setCocktails(?CocktailsAlcool $cocktails): self
     {
         $this->cocktails = $cocktails;
 

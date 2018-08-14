@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller\Frontend;
 
 use App\Entity\Comments;
@@ -10,12 +9,12 @@ use App\Entity\CocktailsAlcool;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 
-class Cocktails extends AbstractController
+class Cocktail extends AbstractController
 {
     /**
      * @Route("/affichage_cocktails/{id}")
      */
-    public function cocktail($id, request $request, ObjectManager $manager, cocktailsAlcool $cocktailAlcool)
+    public function cocktail($id, Request $request, ObjectManager $manager, CocktailsAlcool $cocktailAlcool)
     {
         $entitymanager = $this->getDoctrine()->getManager();
 
@@ -23,22 +22,21 @@ class Cocktails extends AbstractController
 
         $newcom = new Comments();
 
-        $formcom = $this->createForm(CommentType::class, $newCom);
+        $formcom = $this->createForm(CommentType::class, $newcom);
 
         $formcom->handleRequest($request);
 
-        if($formcom->isSubmitted() && $formcom->isValid())
-        {
-            $newCom->setCreateAt(new \datetime);
-            $newCom->setCocktails($cocktailAlcool);
-            $manager->persist($newCom);
+        if ($formcom->isSubmitted() && $formcom->isValid()) {
+            $newcom->setCreateAt(new \datetime);
+            $newcom->setCocktails($cocktailAlcool);
+            $manager->persist($newcom);
             $manager->flush();
         }
 
-        return $this->render('Cocktails/Cocktail.html.twig',array(
+        return $this->render('Frontend/Cocktail.html.twig', [
             'cocktail'=> $cocktail,
-            'form' => $formcom->createView(),
-            'comment' => $newCom
-        ));
+            'comment' => $newcom,
+            'form' => $formcom->createView()
+        ]);
     }
 }

@@ -19,89 +19,89 @@ class Spiritueux
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $Nom;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $histoire;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $elaboration;
+    private $Histoire;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lieuproduction;
+    private $Elaboration;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $marques;
+    private $Lieuproduction;
 
-    public function getId(): ?int
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Marques;
+
+    public function getId()
     {
         return $this->id;
     }
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $Nom): self
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
 
         return $this;
     }
 
     public function getHistoire(): ?string
     {
-        return $this->histoire;
+        return $this->Histoire;
     }
 
-    public function setHistoire(string $histoire): self
+    public function setHistoire(string $Histoire): self
     {
-        $this->histoire = $histoire;
+        $this->Histoire = $Histoire;
 
         return $this;
     }
 
     public function getElaboration(): ?string
     {
-        return $this->elaboration;
+        return $this->Elaboration;
     }
 
-    public function setElaboration(string $elaboration): self
+    public function setElaboration(string $Elaboration): self
     {
-        $this->elaboration = $elaboration;
+        $this->Elaboration = $Elaboration;
 
         return $this;
     }
 
-    public function getLieuproduction(): ?string
+    public function getLieuProduction(): ?string
     {
-        return $this->lieuproduction;
+        return $this->Lieuproduction;
     }
 
-    public function setLieuproduction(string $lieuproduction): self
+    public function setLieuProduction(string $Lieuproduction): self
     {
-        $this->lieuproduction = $lieuproduction;
+        $this->Lieuproduction = $Lieuproduction;
 
         return $this;
     }
 
     public function getMarques(): ?string
     {
-        return $this->marques;
+        return $this->Marques;
     }
 
-    public function setMarques(string $marques): self
+    public function setMarques(string $Marques): self
     {
-        $this->marques = $marques;
+        $this->Marques = $Marques;
 
         return $this;
     }
