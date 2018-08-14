@@ -3,11 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateursRepository")
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     message="l'email que vous avez indiqué et déja utilisé !"
+ * )
  */
 class Utilisateurs implements UserInterface, \Serializable
 {
@@ -35,7 +40,7 @@ class Utilisateurs implements UserInterface, \Serializable
      */
     private $password;
     /**
-     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapez le meme mot de passe")
+     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas taper le meme mot de passe")
      */
     public $confirmpassword;
 
