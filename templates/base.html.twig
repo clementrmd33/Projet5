@@ -28,22 +28,27 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cocktails<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Avec alcool</a></li>
-                                <li><a href="#">Sans alcool</a></li>
+                                <li><a href="{{ path('cocktail_alcool') }}">Avec alcool</a></li>
+                                <li><a href="{{ path('cocktail_sans_alcool') }}">Sans alcool</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Spiritueux<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Vodka</a></li>
-                                <li><a href="#">Gin</a></li>
-                                <li><a href="#">Rhum</a></li>
-                                <li><a href="#">Whisky</a></li>
-                                <li><a href="#">Téquila</a></li>
-                                <li><a href="#">Autres</a></li>
+                                <li><a href="{{ path('vodka') }}">Vodka</a></li>
+                                <li><a href="{{ path('gin') }}">Gin</a></li>
+                                <li><a href="{{ path('rhum') }}">Rhum</a></li>
+                                <li><a href="{{ path('whiskies') }}">Whisky</a></li>
+                                <li><a href="{{ path('tequila') }}">Téquila</a></li>
+                                <li><a href="{{ path('autres_spirit') }}">Autres</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Bars</a></li>
+                        <li><a href="{{ path('app_frontend_map_cartejson') }}">Bars</a></li>
+                        {% if not app.user %}
+                            <li><a href="{{ path('connect')}}">Connexion</a></li>
+                        {% else %}
+                            <li><a href="{{ path('logout') }}">Deconnexion</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -57,11 +62,29 @@
 <footer>
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{{ path('contact') }}">Contact</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Mentions légales</a>
         </li>
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('Admin') }}">Admin</a>
+            </li>
+        {% endif %}
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profil') }}">Profil</a>
+            </li>
+        {% endif %}
     </ul>
 </footer>
 

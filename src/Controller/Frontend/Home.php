@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller\Frontend;
 
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +11,6 @@ class Home extends AbstractController
      */
     public function home()
     {
-        return $this->render('Vue/PageAccueil.html.twig');
+        return $this->render('Frontend/PageAccueil.html.twig');
     }
 }

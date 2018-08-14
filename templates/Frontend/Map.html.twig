@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="jumbotron jumbotron-fluid">
+        <div id="container-carte">
+            <h1 class="display-4">Carte des bars</h1>
+            <p> Vous retrouverez dans cette partie tous les bars à cocktails, bars d'hôtels ... de France.  </p>
+            <p> Pour avoir plus d'informations sur un bar cliquez sur un des marqueurs</p>
+            <div id="map"></div>
+        </div>
+        <div id="container-map-info">
+            <div class="jumbotron" id="container-info-bar">
+                <div id="nomBar"></div>
+                <br/>
+                <div id="descriptionBar"></div>
+                <br/>
+                <div id="adresseBar"></div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent () }}
+
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG_gU6VP4mBwDPGY3t6pMqSYBTgCzJzio&callback=initMap"></script>
+    <script src="{{ asset('js/carte.js') }}"></script>
+{% endblock %}
