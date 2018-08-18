@@ -2,7 +2,7 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block main %}
-    <div class="container_inscription">
+    <div class="container_inscription responsive">
         <div class="jumbotron jumbotron-fluid">
             {{ form_start(form) }}
             {{ form_row(form.email, {'attr': {'placeholder': 'Email...'}}) }}

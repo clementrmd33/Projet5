@@ -8,7 +8,7 @@ return new class extends DefaultDeployer
     {
         return $this->getConfigBuilder()
             // SSH connection string to connect to the remote server (format: user@host-or-IP:port-number)
-            ->server('u90755997@home701547727.1and1-data.host')
+            ->server('u90755997@home701547727.1and1-data.host:22')
             // the absolute path of the remote server directory where the project is deployed
             ->deployDir('/var/www/my-project')
             // the URL of the Git repository where the project code is hosted

@@ -2,59 +2,61 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block main %}
-    <div id="affichage_cocktail">
-        <div class="jumbotron container" id="titre_cocktail">
-            <div class="text-center">
-                <h1>{{ cocktail.nom}}</h1>
-            </div>
-            <div class="col-lg-12 text-center">
-                <h2>Histoire</h2>
-                <p>{{ cocktail.histoire|raw  }}</p>
-            </div>
-            <div class="col-lg-12 text-center reglage">
-                <h2>Elaboration</h2>
-                <p>{{ cocktail.elaboration|raw }}</p>
-            </div>
-            <div class="col-lg-12 text-center reglage">
-                <h2>Recette</h2>
-                <p>{{ cocktail.recette|raw }}</p>
-            </div>
-            <div class="col-lg-12 text-center bordure">
-                <h2>Décoration</h2>
-                <p>{{ cocktail.decoration|raw  }}</p>
+    <div class="responsive">
+        <div id="affichage_cocktail">
+            <div class="jumbotron container" id="titre_cocktail">
+                <div class="text-center">
+                    <h1>{{ cocktail.nom}}</h1>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <h2>Histoire</h2>
+                    <p>{{ cocktail.histoire|raw  }}</p>
+                </div>
+                <div class="col-lg-12 text-center reglage">
+                    <h2>Elaboration</h2>
+                    <p>{{ cocktail.elaboration|raw }}</p>
+                </div>
+                <div class="col-lg-12 text-center reglage">
+                    <h2>Recette</h2>
+                    <p>{{ cocktail.recette|raw }}</p>
+                </div>
+                <div class="col-lg-12 text-center bordure">
+                    <h2>Décoration</h2>
+                    <p>{{ cocktail.decoration|raw  }}</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="jumbotron container" id="container_commentaire">
-        <div id="espace_commentaire">
-            <h2 class="text-center"><span id="com_h2">COMMENTAIRES</span> ({{ cocktail.comments|length }})</h2>
-            {% if app.user %}
-                <div class="container" id="form_com">
-                    {{ form_start(form) }}
-                    {{ form_row(form.nom, {'label':'NOM','attr': {'placeholder': 'Entrez votre nom...'}})}}
-                    {{ form_row(form.message, {'label':'COMMENTAIRE','attr': {'placeholder': 'Entrez votre message ...'}}) }}
-                    <input type="submit" class="btn btn-primary"/>
-                    {{ form_end(form) }}
-                </div>
-            {% else %}
-                <div class="container text-center">
-                    <p>Vous devez être connecter pour ajouter un commentaire</p>
-                    <hr>
-                </div>
-            {% endif %}
-        </div>
-        <p></p>
-        <div id="affichageCommentaire">
-            {% for comment in cocktail.comments %}
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <p><small>Le {{ comment.createAt|date ('d/m/Y à H:i') }} </small> par <strong>{{ comment.nom }}</strong> : {{ comment.message }}</p>
-                            <hr>
+        <div class="jumbotron container" id="container_commentaire">
+            <div id="espace_commentaire">
+                <h2 class="text-center"><span id="com_h2">COMMENTAIRES</span> ({{ cocktail.comments|length }})</h2>
+                {% if app.user %}
+                    <div class="container" id="form_com">
+                        {{ form_start(form) }}
+                        {{ form_row(form.nom, {'label':'NOM','attr': {'placeholder': 'Entrez votre nom...'}})}}
+                        {{ form_row(form.message, {'label':'COMMENTAIRE','attr': {'placeholder': 'Entrez votre message ...'}}) }}
+                        <input type="submit" class="btn btn-primary"/>
+                        {{ form_end(form) }}
+                    </div>
+                {% else %}
+                    <div class="container text-center">
+                        <p>Vous devez être connecter pour ajouter un commentaire</p>
+                        <hr>
+                    </div>
+                {% endif %}
+            </div>
+            <p></p>
+            <div id="affichageCommentaire">
+                {% for comment in cocktail.comments %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <p><small>Le {{ comment.createAt|date ('d/m/Y à H:i') }} </small> par <strong>{{ comment.nom }}</strong> : {{ comment.message }}</p>
+                                <hr>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

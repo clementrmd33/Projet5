@@ -15,8 +15,8 @@ use App\Entity\Spiritueux;
 class AjoutCrud extends AbstractController
 {
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/Ajout_Cocktail", name="Add_cocktail")
+     * @Security("has_role('ROLE_ADMIN')")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function addCocktail(Request $request)
@@ -28,16 +28,13 @@ class AjoutCrud extends AbstractController
             ->add('Recette', TextareaType::class, [
                 'attr' => ['class' => 'ckeditor']
             ])
-            ->add('Decoration', TextareaType::class, [
-                'attr' => ['class' => 'ckeditor']
-            ])
+            ->add('Decoration', TextareaType::class)
             ->add('Histoire', TextareaType::class, [
                 'attr' => ['class' => 'ckeditor']
             ])
             ->add('Elaboration', TextareaType::class, [
                 'attr' => ['class' => 'ckeditor']
             ])
-
             ->add('Alcool', ChoiceType::class, [
                 'choices' => [
                     'vodka' => 'vodka',
@@ -52,7 +49,7 @@ class AjoutCrud extends AbstractController
 
         $formcocktail->handleRequest($request);
 
-        if ($formcocktail->isSubmitted()&& $formcocktail->isValid()) {
+        if ($formcocktail->isSubmitted() && $formcocktail->isValid()) {
             $entitymanager = $this->getDoctrine()->getManager();
 
             $entitymanager -> persist($newcocktail);

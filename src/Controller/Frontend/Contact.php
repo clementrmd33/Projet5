@@ -20,7 +20,7 @@ class Contact extends AbstractController
         if ($formcontact->isSubmitted() && $formcontact->isValid()) {
             $message = (new \Swift_Message($formcontact['objet']->getdata()))
                 ->setFrom($formcontact['email']->getdata())
-                ->setTo('clementrmd33@gmail.com')
+                ->setTo('alambic@webmaster-rmd.fr')
                 ->setBody($formcontact['contenu']->getdata())
             ;
 

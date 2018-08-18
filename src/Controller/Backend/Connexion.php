@@ -6,10 +6,10 @@ use App\Entity\Utilisateurs;
 use App\Form\InscriptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class Connexion extends Controller
+class Connexion extends AbstractController
 {
     /**
      * @Route("/inscription", name="inscription")
@@ -31,14 +31,14 @@ class Connexion extends Controller
             $manager->flush();
 
             $message = (new \Swift_Message('Confirmation inscription'))
-                ->setFrom('clementrmd33@gmail.com')
+                ->setFrom('alambic@webmaster-rmd.fr')
                 ->setTo($forminscription['email']->getdata())
                 ->setBody('Votre inscrption a bien été effectué')
             ;
             $mailer->send($message);
             return $this->redirectToRoute('connect');
         }
-        return $this->render('Frontend/creationMembre.html.twig', [
+        return $this->render('Frontend/CreationMembre.html.twig', [
             'form' => $forminscription->createView()
         ]);
     }

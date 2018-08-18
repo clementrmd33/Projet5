@@ -1,4 +1,7 @@
 /*******************************************TEMPLATE*****************************************/
+body{
+    background-color: #eee;
+}
 header .navbar {
     background-color: goldenrod;
 }
@@ -9,6 +12,10 @@ footer .nav{
     display: flex;
     justify-content: center;
     background-color: goldenrod;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 footer .nav a{
     text-decoration: none;
@@ -23,9 +30,6 @@ footer .nav a{
 }
 .jumbotron .container h1{
     margin-bottom: 30px;
-}
-body{
-    background-color: #eee;
 }
 #bloc_pageAccueil{
     padding-top: 0;

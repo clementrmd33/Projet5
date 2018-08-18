@@ -1,6 +1,6 @@
 carteBar = {
     map: document.getElementById('map'),
-    url: 'http://127.0.0.1:8000/carte_des_bars/info',
+    url: 'http://webmaster-rmd.fr/carte_des_bars/info',
     donneesJson: null,
     myLatlng:null,
     marker:null,
